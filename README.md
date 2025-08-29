@@ -1,2 +1,2 @@
-# Simple-java-CI-CD-pipeline.
-This is for java project 
+# CI-CD
+This is Simple ci-cd project
