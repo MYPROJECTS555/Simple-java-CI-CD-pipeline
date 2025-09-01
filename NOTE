@@ -3,5 +3,25 @@ Step 1 ---  we have to install
   Jenkins  
   Docker 
   Git 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+FROM tomcat:latest
+RUN cp -R  /usr/local/tomcat/webapps.dist/*  /usr/local/tomcat/webapps
+COPY webapp/target/webapp.war /usr/local/tomcat/webapps
 
 
+
+1) --- FROM tomcat:latest
+
+This line sets the base image to the official latest version of Apache Tomcat, which comes preconfigured with all necessary dependencies for running Java web applications.
+
+2) --RUN cp -R /usr/local/tomcat/webapps.dist/* /usr/local/tomcat/webapps
+
+This command copies the default web applications provided in the Tomcat image from webapps.dist to the actual deployment directory webapps. 
+Some Tomcat images keep default apps (like the manager app) in webapps.dist rather than webapps by default, so this step ensures the container will have them available when running.
+
+3) --- COPY webapp/target/webapp.war /usr/local/tomcat/webapps
+
+This line copies the built WAR file for the user's application from the Docker build context into the webapps directory inside the Tomcat container.
+Placing the WAR here triggers Tomcat to automatically deploy the application upon startup, making it accessible at the configured context path.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
