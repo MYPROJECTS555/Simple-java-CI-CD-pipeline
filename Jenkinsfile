@@ -9,7 +9,7 @@ pipeline{
     stages{
         stage('Git-checkout'){
             steps{
-                git branch: 'dev' , url: 'https://github.com/manjukolkar/web-application.git'
+                git branch: 'main' , url: 'https://github.com/MYPROJECTS555/Simple-java-CI-CD-pipeline.git'
             }
         }
         stage('Code Compile'){
