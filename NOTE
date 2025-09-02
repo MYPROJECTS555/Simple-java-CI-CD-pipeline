@@ -4,6 +4,9 @@ Step 1 ---  we have to install
   Docker 
   Git 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+This is java based application. so we are using tomcat
+
+
 
 FROM tomcat:latest
 RUN cp -R  /usr/local/tomcat/webapps.dist/*  /usr/local/tomcat/webapps
