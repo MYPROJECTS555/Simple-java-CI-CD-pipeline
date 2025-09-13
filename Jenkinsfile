@@ -30,7 +30,7 @@ pipeline{
         stage('Containerisation'){
             steps{
                 sh '''
-                docker run -it -d --name c8 -p 9008:8080 nameisvikas/javaproject
+                docker run -it -d --name container-java -p 9085:8080 nameisvikas/javaproject
                 '''
             }
         }
