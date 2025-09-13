@@ -1,1 +1,34 @@
+pipeline
+{
+    tools
+    {
+        jdk 'java-11'
+        maven 'maven'
+    }
+    agent any
+    stages
+    {
+        stage('git-checkout')
+        {
+            steps
+            {
+                git branch :'java',url :'https://github.com/MYPROJECTS555/Simple-java-CI-CD-pipeline.git'
+            }
+        }
+        stage('mvn-compile')
+        {
+            steps
+            {
+                sh 'mvn compile'
+            }
+        }
+        stage('mvn-compile')
+        {
+            steps
+            {
+                sh 'mvn clean install'
+            }
+        }
+    }   
 
+}
