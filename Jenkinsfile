@@ -27,6 +27,11 @@ pipeline{
                 sh 'docker build -t nameisvikas/javaproject .'
             }
         }
+        stage('trivy'){
+            steps{
+                sh 'trivy image --format table -o trivy_report.html nameisvikas/javaproject'
+            }
+        }
         stage('Containerisation'){
             steps{
                 sh '''
